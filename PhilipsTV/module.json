@@ -1,0 +1,12 @@
+{
+    "id": "{1A7C55E6-1F29-B87C-99EE-8CB70F5A4B95}",
+    "name": "PhilipsTV",
+    "type": 3,
+    "vendor": "Philips",
+    "aliases": ["Philips TV"],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "PHTV",
+    "url": "https://github.com/lorbetzki/net.lorbetzki.philipstv.git"
+}

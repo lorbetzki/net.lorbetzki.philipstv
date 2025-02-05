@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="/icons.js" crossorigin="anonymous"> </script>
+    <style>
+
+        body {
+            display: flex;
+            overflow: auto;
+        }
+
+        .container {
+            position: relative;
+            width: 95%;
+            height: 95%;
+            border-radius: 10px;
+            padding: 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            background-color: var(--card-color);
+        }
+
+
+        .buttons {
+            display: grid;
+            grid-gap: 5%;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .forbuttons {
+            display: grid;
+            grid-gap: 5%;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .buttons .teletext,
+        .buttons .list {
+            font-size: 4vh;
+        }
+
+        .buttons .red {
+            color: red;
+        }
+        .buttons .green {
+            color: green;
+        }
+        .buttons .yellow {
+            color: yellow;
+        }
+        .buttons .blue {
+            color: blue;
+        }
+
+        .buttons button {
+            padding: 10%;
+            transform: scale(0.9);
+            border-radius: 20%;
+            border: none;
+            font-size: 2vh;
+            background-color: var(--card-color, var(--buttonbg-color));
+            color: var(--content-color, var(--button-color));
+        }
+
+        .buttons button:active {
+            transform: scale(0.9);
+            background: var(--accent-color,#32c9ac);
+            color: #fff;
+        }
+
+        .buttons button:hover {
+            box-shadow: var(--accent-color,#32c9ac) 0 0 1px 1px;
+        }
+
+        .buttons .teletext:hover {
+            box-shadow: #ff3c41 0 0 1px 1px;
+        }
+
+        .buttons .teletext:active {
+            background: #ff3c41;
+            color: #fff;
+        }
+
+        .buttons .list:hover {
+            box-shadow: var(--accent-color,#32c9ac) 0 0 1px 1px;
+        }
+
+        .buttons .list:active {
+            background: var(--accent-color,#32c9ac);
+            color: #fff;
+        }
+
+        .buttons .blank:active, 
+        .buttons .blank:hover  {
+            box-shadow: none;
+            background-color: var(--card-color, var(--buttonbg-color));
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="container">
+<!--            
+            <button class="red" data-value="RedColour"><div class="fa-light fa-rectangle"></button>
+                <button class="green" data-value="GreenColour"><div class="fa-light fa-rectangle"></button>
+                <button class="yellow" data-value="YellowColour"><div class="fa-light fa-rectangle"></button>
+                <button class="blue" data-value="BlueColour"><div class="fa-light fa-rectangle"></button>
+    -->                
+            <div class="buttons">
+                <button class="blank"></button>
+                <button data-value="Standby"><div class="fa-light fa-power-off"></button>
+                <button class="blank"></button>
+
+                <button class="blank"></button>
+                <button data-value="AmbilightOnOff">Ambilight</button>
+                <button class="blank"></button>
+
+                <button class="blank">Menu</button>
+                <button class="blank">Speak</button>
+                <button data-value="Source">Sources</button>
+
+                <button class="blank"></button>
+                <button data-value="CursorUp"><div class="fa-light fa-up"></button>
+                <button class="blank"></button>
+                <button data-value="CursorLeft"><div class="fa-light fa-left"></button>
+                <button data-value="Confirm"><div class="fa-light fa-octagon-check"></button>
+                <button data-value="CursorRight"><div class="fa-light fa-right"></div></button>
+                <button class="blank"></button>
+                <button data-value="CursorDown"><div class="fa-light fa-down"></button>
+                <button class="blank"></button>
+
+                <button data-value="Back"><div class="fa-light fa-arrow-left"></button>
+                <button data-value="Home"><div class="fa-light fa-house"></button>
+                <button data-value=""><div class="fa-light fa-plus"></button>
+
+                <button data-value="Rewind"><div class="fa-light fa-backward"></button>
+                <button data-value="Play"><div class="fa-light fa-play"></button>
+                <button data-value="FastForward"><div class="fa-light fa-forward"></div></button>
+
+                <button data-value="Stop"><div class="fa-light fa-stop"></button>
+                <button data-value="Pause"><div class="fa-light fa-pause"></button>
+                <button class="red" data-value="Record"><div class="fa-light fa-circle"></button>
+
+                <button data-value="VolumeUP"><div class="fa-light fa-volume-high"></div></button>
+                <button class="blank"></button>
+                <button data-value="ChannelStepUp"><div class="fa-light fa-chevron-up"></div></button>
+
+                <button data-value="Mute"><div class="fa-light fa-volume-xmark"></div></button>
+                <button class="blank"></button>
+                <button data-value="Exit"><div class="fa-light fa-tv"></div></button>
+
+                <button data-value="Mute"><div class="fa-light fa-volume-low"></div></button>
+                <button class="blank"></button>
+                <button data-value="ChannelStepDown"><div class="fa-light fa-chevron-down"></div></button>
+
+                <button data-value="Digit1">1</button>
+                <button data-value="Digit2">2</button>
+                <button data-value="Digit3">3</button>
+
+                <button data-value="Digit4">4</button>
+                <button data-value="Digit5">5</button>
+                <button data-value="Digit6">6</button>
+
+                <button data-value="Digit7">7</button>
+                <button data-value="Digit8">8</button>
+                <button data-value="Digit9">9</button>
+
+                <button class="Teletext" data-value="clear">TEXT</button>
+                <button data-value="Digit0">0</button>
+                <button class="List" data-value="enter">List</button>
+            </div>
+
+    </div>
+    <script type="text/javascript" charset="UTF-8">
+
+        const buttons = document.querySelectorAll("button");
+
+        // set color for buttons depending on the theme
+        document.documentElement.style.setProperty('--button-color', queryParameters.get('textcolor'));
+        document.documentElement.style.setProperty('--buttonbg-color', queryParameters.get('backgroundColor'));
+                
+        // receive textmessage from symcon and show on display
+        function handleMessage(data) {
+            const message = JSON.parse(data);
+            //console.log(message.sendText,message.timeOut);
+            
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+    "id": "{4BD129B4-0846-F987-1EEF-F7B09E21B1C2}",
+    "name": "PhilipsTV",
+    "author": "Kristian Lorbetzki",
+    "url": "https://github.com/lorbetzki/net.lorbetzki.philipstv.git",
+    "compatibility": {
+        "version": "7.2"
+    },
+    "version": "1.0",
+    "build": 0,
+    "date": 0
+}

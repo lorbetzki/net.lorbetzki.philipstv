@@ -1,0 +1,58 @@
+{
+    "elements": [
+        {
+            "type": "ValidationTextBox",
+            "name": "Host",
+            "caption": "IP or Hostname of the TV"
+        }
+    ],
+    "actions": [
+        {   
+            "type": "Label", 
+            "caption": "we can start the pairing process, please press the STARTPAIRING button, then type in the TV PIN you seen on the TV into the field and then press the PAIR Button",
+            "visible": false
+        },
+        {
+            "type": "Button",
+            "caption": "StartPairing",
+            "onClick": "IPS_RequestAction($id, 'startPairing', '');",
+            "visible": false
+        },
+        {
+            "type": "ValidationTextBox",
+            "name": "TVPin",
+            "caption": "Type in Pin you receive from TV",
+            "visible": false
+        },
+        {
+            "type": "Button",
+            "caption": "Pair",
+            "onClick": "IPS_RequestAction($id, 'createAuth', $TVPin);",
+            "visible": false
+        },
+        {
+
+            "type": "Button",
+            "name": "Reset",
+            "caption": "Reset",
+            "onClick": "IPS_RequestAction($id, 'reset', '');"
+        }
+    ],
+    "status": [
+        {
+            "code": 201,
+            "icon": "error",
+            "caption": "Please insert IP or Hostname of the TV"
+        },
+        {
+            "code": 202,
+            "icon": "error",
+            "caption": "No answer from TV, check IP and go to Home menu on the TV"
+        },
+        {
+            "code": 203,
+            "icon": "inactive",
+            "caption": "Wait for Pairing"
+        }
+    ]
+}

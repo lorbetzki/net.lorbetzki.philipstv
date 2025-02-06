@@ -119,14 +119,15 @@ declare(strict_types=1);
 						
 			$result = json_decode($response, true);
 
+			$this->WriteAttributeString("AuthKey", $result['auth_key']);
+			$this->WriteAttributeInteger("AuthTimestamp", $result['timestamp']);
+			
+
 			if ($result['error_text'] === "Authorization required")
 			{
 				$this->SendDebug(__FUNCTION__, 'Answer from TV: ' . $result['error_text'], 0);
 				$this->SetStatus(203);
 			}
-
-			$this->WriteAttributeString(__FUNCTION__, "AuthKey", $result['auth_key']);
-			$this->WriteAttributeInteger(__FUNCTION__, "AuthTimestamp", $result['timestamp']);
 			return;
 		}
 
@@ -152,7 +153,7 @@ declare(strict_types=1);
 			$authdata = $auth_timestamp.$tvpin;
 			$signature =  base64_encode(hash_hmac('sha1', $secret_key, $authdata, true));
 		
-			$this->SendDebug(__FUNCTION__, "create signature: ". $authdata." ".$signature, 0);
+			$this->SendDebug(__FUNCTION__, "create signature: ". $authdata."->".$signature, 0);
 		
 			$data=[
 					'device' => [
